@@ -6,7 +6,7 @@ public class Main implements Spec {
     public static void main(String[] args) {
         Main main = new Main();
         Person person1 = main.makePerson(main.askString("Enter your name: "));
-        person1.setHeight(main.askNumber("Enter your height in cm: "));
+        person1.setHeight(main.askNumber("Enter your height in inches: "));
         person1.setAge(main.askNumber("Enter your age in years: "));
         
         String direction = main.askString("Enter the direction for climbing stairs (left down, right down, left up, right up): ");
@@ -16,7 +16,7 @@ public class Main implements Spec {
        
         while (main.askString("Do you want to add another player? (y/n): ").equalsIgnoreCase("y")) {
             Person person = main.makePerson(main.askString("Enter your name: "));
-            person.setHeight(main.askNumber("Enter your height in cm: "));
+            person.setHeight(main.askNumber("Enter your height in inches: "));
             person.setAge(main.askNumber("Enter your age in years: "));
 
             String newDirection = main.askString("Enter the direction for climbing stairs (left down, right down, left up, right up): ");
@@ -26,7 +26,7 @@ public class Main implements Spec {
         }
 
         Results results = game.getResults();
-        results.displayResults();
+        results.getResults();
     }
 
     @Override

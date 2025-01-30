@@ -7,7 +7,7 @@ public class Results {
         this.players = players;
     }
 
-    public void displayResults() {
+    public void getResults() {
         for (Person player : players) {
             System.out.println("Player: " + player.getName() + ", Height: " + player.getHeight() + " cm, " + "Age: " + player.getAge() + " years");
             player.climb(player.getClimbingDirection());

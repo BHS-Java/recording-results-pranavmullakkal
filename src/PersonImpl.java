@@ -73,7 +73,7 @@ public class PersonImpl implements Person {
 
     private void drawStairsRightUp() {
         for (int i = 1; i <= 5; i++) {
-            System.out.println(" ".repeat(5 - i) + "*".repeat(i));
+            System.out.println(" ".repeat(5 - i) + "#".repeat(i));
         }
     }
 
@@ -85,7 +85,7 @@ public class PersonImpl implements Person {
 
     private void drawStairsLeftUp() {
         for (int i = 1; i <= 5; i++) {
-            System.out.println("*".repeat(i));
+            System.out.println("[]".repeat(i));
         }
     }
 
