@@ -9,8 +9,8 @@ public class Results {
 
     public void displayResults() {
         for (Person player : players) {
-            System.out.println("Player: " + player.getName() + ", Height: " + player.getHeight() + " cm, Age: " + player.getAge() + " years");
+            System.out.println("Player: " + player.getName() + ", Height: " + player.getHeight() + " cm, " + "Age: " + player.getAge() + " years");
+            player.climb(player.getClimbingDirection());
         }
     }
-
 }

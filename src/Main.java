@@ -2,19 +2,26 @@ import java.util.Scanner;
 
 public class Main implements Spec {
     private Scanner scanner = new Scanner(System.in);
-
+   
     public static void main(String[] args) {
         Main main = new Main();
         Person person1 = main.makePerson(main.askString("Enter your name: "));
         person1.setHeight(main.askNumber("Enter your height in cm: "));
         person1.setAge(main.askNumber("Enter your age in years: "));
         
-        Game game = new Game(person1);
+        String direction = main.askString("Enter the direction for climbing stairs (left down, right down, left up, right up): ");
+        person1.climb(direction);
         
-        while (main.askString("Do you want to add another player? (y/n): ").equalsIgnoreCase("yp")) {
+        Game game = new Game(person1);
+       
+        while (main.askString("Do you want to add another player? (y/n): ").equalsIgnoreCase("y")) {
             Person person = main.makePerson(main.askString("Enter your name: "));
             person.setHeight(main.askNumber("Enter your height in cm: "));
             person.setAge(main.askNumber("Enter your age in years: "));
+
+            String newDirection = main.askString("Enter the direction for climbing stairs (left down, right down, left up, right up): ");
+            person.climb(newDirection);
+            
             game.addPerson(person);
         }
 
@@ -54,6 +61,6 @@ public class Main implements Spec {
 
     @Override
     public void addResults(Person player) {
-    
+
     }
 }
