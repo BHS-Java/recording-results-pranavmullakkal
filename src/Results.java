@@ -1,14 +1,16 @@
-/*
- * name: Pranav Mullakkal
- * class: AP CSA P7
- * date: 1/28/25
- * Prompt: Use the interfaces provided and use a scanner to get the name hight and age of the person.
+import java.util.List;
 
+public class Results {
+    private List<Person> players;
 
-    Your code must also run.
+    public Results(List<Person> players) {
+        this.players = players;
+    }
 
- */
+    public void displayResults() {
+        for (Person player : players) {
+            System.out.println("Player: " + player.getName() + ", Height: " + player.getHeight() + " cm, Age: " + player.getAge() + " years");
+        }
+    }
 
-public interface Results {
-    
 }

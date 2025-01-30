@@ -5,14 +5,21 @@ public class Main implements Spec {
 
     public static void main(String[] args) {
         Main main = new Main();
-        Person person = main.makePerson(main.askString("Enter your name: "));
+        Person person1 = main.makePerson(main.askString("Enter your name: "));
+        person1.setHeight(main.askNumber("Enter your height in cm: "));
+        person1.setAge(main.askNumber("Enter your age in years: "));
         
-        person.setHeight(main.askNumber("Enter your height in cm: "));
-        person.setAge(main.askNumber("Enter your age in years: "));
+        Game game = new Game(person1);
         
-        System.out.println("Name: " + person.getName());
-        System.out.println("Height: " + person.getHeight() + " cm");
-        System.out.println("Age: " + person.getAge() + " years");
+        while (main.askString("Do you want to add another player? (y/n): ").equalsIgnoreCase("yp")) {
+            Person person = main.makePerson(main.askString("Enter your name: "));
+            person.setHeight(main.askNumber("Enter your height in cm: "));
+            person.setAge(main.askNumber("Enter your age in years: "));
+            game.addPerson(person);
+        }
+
+        Results results = game.getResults();
+        results.displayResults();
     }
 
     @Override
@@ -28,11 +35,13 @@ public class Main implements Spec {
             System.out.println("Please enter a valid number.");
             scanner.next();
         }
-        return scanner.nextInt();
+        int number = scanner.nextInt();
+        scanner.nextLine();
+        return number;
     }
 
     @Override
-    public Results getResults(Game guessingOrBetter) {
+    public Results getResults(Game sigmaGame) {
         return null;
     }
 
@@ -45,6 +54,6 @@ public class Main implements Spec {
 
     @Override
     public void addResults(Person player) {
-        
+    
     }
 }

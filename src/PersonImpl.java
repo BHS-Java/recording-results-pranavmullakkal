@@ -1,4 +1,5 @@
 public class PersonImpl implements Person {
+    //PROPERTIES-----------------
     private String name;
     private int height;
     private int age;
