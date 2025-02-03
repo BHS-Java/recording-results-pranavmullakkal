@@ -73,25 +73,44 @@ public class PersonImpl implements Person {
 
     private void drawStairsRightUp() {
         for (int i = 1; i <= 5; i++) {
-            System.out.println(" ".repeat(5 - i) + "#".repeat(i));
+            for (int j = 0; j < 5 - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
         }
     }
-
+    
     private void drawStairsRightDown() {
         for (int i = 5; i >= 1; i--) {
-            System.out.println(" ".repeat(5 - i) + "*".repeat(i));
+            for (int j = 0; j < 5 - i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+                System.out.print("+");
+            }
+            System.out.println();
         }
     }
-
+    
     private void drawStairsLeftUp() {
         for (int i = 1; i <= 5; i++) {
-            System.out.println("[]".repeat(i));
+            for (int j = 0; j < i; j++) {
+                System.out.print("[]");
+            }
+            System.out.println();
         }
     }
-
+    
     private void drawStairsLeftDown() {
-        for (int i = 5; i >= 1; i--) {
-            System.out.println("*".repeat(i));
+        for (int i = 5; i >= 1; i--) { 
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
     }
+    
 }
