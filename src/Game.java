@@ -7,12 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    // PROPERTIES---------------
     private List<Person> players;
     private static final String CSV_FILE = "people.csv";
-    private Spec spec; 
+    private Spec spec;
 
-    // CONSTRUCTORS-------------
     public Game(Spec spec, Person... persons) {
         this.spec = spec;
         players = new ArrayList<>();
@@ -21,7 +19,6 @@ public class Game {
         }
     }
 
-    // METHODS-----------------
     public void addPerson(Person person) {
         players.add(person);
         savePersonToCSV(person);
@@ -38,14 +35,14 @@ public class Game {
     public void selectPlayer() {
         Scanner scanner = new Scanner(System.in);
         List<Person> existingPlayers = loadPlayersFromCSV();
-    
+
         System.out.println("Select a player from the list below or create a new one:");
         for (int i = 0; i < existingPlayers.size(); i++) {
             Person player = existingPlayers.get(i);
             System.out.println((i + 1) + ". " + player.getName() + " (Height: " + player.getHeight() + ", Age: " + player.getAge() + ", Climbing Direction: " + player.getClimbingDirection() + ")");
         }
         System.out.println((existingPlayers.size() + 1) + ". Create a new player");
-    
+
         int choice = -1;
         while (true) {
             System.out.print("Enter your choice: ");
@@ -58,7 +55,7 @@ public class Game {
                 scanner.next();
             }
         }
-    
+
         if (choice >= 1 && choice <= existingPlayers.size()) {
             Person selectedPlayer = existingPlayers.get(choice - 1);
             System.out.println("You selected: " + selectedPlayer.getName());
@@ -75,7 +72,6 @@ public class Game {
             System.out.println("Invalid choice. Please try again.");
         }
     }
-    
 
     private List<Person> loadPlayersFromCSV() {
         List<Person> players = new ArrayList<>();
@@ -111,9 +107,9 @@ public class Game {
 
     private void savePersonToCSV(Person person) {
         try (FileWriter writer = new FileWriter(CSV_FILE, true)) {
-            writer.append(person.getName()).append(", ")
-                  .append(String.valueOf(person.getHeight())).append(", ")
-                  .append(String.valueOf(person.getAge())).append(", ")
+            writer.append(person.getName()).append(",")
+                  .append(String.valueOf(person.getHeight())).append(",")
+                  .append(String.valueOf(person.getAge())).append(",")
                   .append(person.getClimbingDirection()).append("\n");
         } catch (IOException e) {
             System.out.println("Error writing to CSV file: " + e.getMessage());
